@@ -11,7 +11,7 @@ namespace Workshop.Student
         public GameObject[] floorTiles;
         public GameObject[] wallTiles;
         public GameObject[] foodTiles;
-
+        
         public string[,] saveItemMap = new string[3, 3] {
             { " ", "Soda", " "},
             { " ", " ", " "},
@@ -19,27 +19,48 @@ namespace Workshop.Student
         };
 
         // 1. declare Players variable
-
+        public GameObject playerObject;
         // 7. declare Exit variable 
-
+        public GameObject exitObject;
 
         public void Start()
         {
+            
             // 1. random player at the position <0, 0> map สร้างให้อยู่จุดเริ่มต้น
+            Instantiate(playerObject, new Vector2(0, 0), Quaternion.identity);
 
-            // 2. create obstacles สร้างให้อยู่ตรงกลาง ครึ่งนึงของฉาก
 
-            // 3. create floor
 
-            for (int y = 0; y< rows;y++)
+
+
+
+            // 3. create floor (ให้สร้างพื้นก่อน)
+            for (int y = 0; y < rows; y++)
             {
                 for (int x = 0; x < columns; x++)
                 {
                     int r = UnityEngine.Random.Range(0, floorTiles.Length);
-                    GameObject title = Instantiate(floorTiles[0], new Vector2(x, y), Quaternion.identity);
-                    title.name = "Floor" + x + "_" + y;
+                    GameObject tile = Instantiate(floorTiles[r], new Vector2(x, y), Quaternion.identity);
+                    tile.name = "Floor_" + x + "_" + y;
                 }
             }
+
+            // 2. create obstacles (ย้ายโค้ดส่วนนี้มาสร้างทีหลัง เพื่อให้กำแพงวางทับพื้น)
+            int midWallx = columns / 2;
+            for (int y = 0; y < rows / 2; y++)
+            {
+                int r = UnityEngine.Random.Range(0, wallTiles.Length);
+                GameObject obstacle = Instantiate(wallTiles[r], new Vector2(midWallx, y), Quaternion.identity);
+                obstacle.name = "Obstacle_" + midWallx + "_" + y;
+
+                
+                if (obstacle.GetComponent<SpriteRenderer>() != null)
+                {
+                    obstacle.GetComponent<SpriteRenderer>().sortingOrder = 5;
+                }
+            }
+
+
 
 
             // 4. create walls
@@ -88,9 +109,9 @@ namespace Workshop.Student
                         }
                     }
                 }
-            } 
+            }
             // 7. place exit สร้างอยู่มุมขวาบน  
-
+            Instantiate(exitObject, new Vector2(columns - 1, rows - 1), Quaternion.identity);
         }
     }
 
