@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
+using Unity.Properties;
 using UnityEngine;
 
 namespace Assignment
@@ -11,7 +12,7 @@ namespace Assignment
         public void Start()
         {
             AS01_RandomItemDrop();
-            // AS02_NestedLoopForCreate2DMap();
+            AS02_NestedLoopForCreate2DMap();
             // AS03_NestedLoopForMakingWallAround();
             // AS04_AttackEnemy();
             // AS05_DynamicIterationLoop();
@@ -125,7 +126,34 @@ namespace Assignment
         public int as02_rows;
         public void AS02_NestedLoopForCreate2DMap()
         {
-            throw new NotImplementedException();
+
+           for (int y = 0; y < as02_rows; y++)
+            {
+                string rowPatt = "";
+
+                for (int x = 0; x < as02_columns; x++)
+                {
+                    int rIndex = UnityEngine.Random.Range(0, as02_floorTiles.Length);
+                    GameObject selectFloor = as02_floorTiles[rIndex];
+
+                    GameObject setFloor = Instantiate(selectFloor, new Vector2(x, y), transform.rotation);
+
+                    rowPatt += setFloor.name;
+
+                }
+
+                Debug.Log(rowPatt);
+
+
+            }
+
+
+
+
+
+
+
+
         }
 
         /*
@@ -219,7 +247,16 @@ namespace Assignment
         public int as03_rows;
         public void AS03_NestedLoopForMakingWallAround()
         {
-            throw new NotImplementedException();
+            for (int y = 0; y < as03_rows; y++)
+            {
+                for (int x = 0; < as03_columns; x++)
+                {
+                    if (x == 0 || x == as03_columns - 1 || y == 0 || y == as03_rows -1 )
+                    {
+                        Instantiate(as03_wall, new Vector2(x, y), transform.rotation);
+                    }
+                }
+            }
         }
 
         /*
