@@ -13,7 +13,7 @@ namespace Assignment
         {
             AS01_RandomItemDrop();
             AS02_NestedLoopForCreate2DMap();
-            // AS03_NestedLoopForMakingWallAround();
+            AS03_NestedLoopForMakingWallAround();
             // AS04_AttackEnemy();
             // AS05_DynamicIterationLoop();
             // AS06_WhileLoopAndArray();
@@ -249,7 +249,7 @@ namespace Assignment
         {
             for (int y = 0; y < as03_rows; y++)
             {
-                for (int x = 0; < as03_columns; x++)
+                for (int x = 0; x < as03_columns; x++)
                 {
                     if (x == 0 || x == as03_columns - 1 || y == 0 || y == as03_rows -1 )
                     {
