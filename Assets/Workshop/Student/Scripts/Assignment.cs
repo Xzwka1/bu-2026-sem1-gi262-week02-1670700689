@@ -14,20 +14,20 @@ namespace Assignment
             //AS01_RandomItemDrop();
             //AS02_NestedLoopForCreate2DMap();
             //AS03_NestedLoopForMakingWallAround();
-            AS04_AttackEnemy();
-            // AS05_DynamicIterationLoop();
-            // AS06_WhileLoopAndArray();
-            // AS07_HealTargetAtIndex();
-            // AS08_RandomPickingDialogue();
-            // AS09_MultiplicationTable();
-            // AS10_FindSummationFromZeroToNUsingWhileLoop();
-            // AS11_SpawnEnemies();
-            // StartCoroutine(AS12_CountTime());
-            // AS13_SumOfNumbersInRow();
-            // AS14_SumOfNumbersInColumn();
-            // AS15_MakeTheTriangle();
-            // AS16_MultiplicationTableOf_2_3_and_4();
-            // EX_01_TicTacToeGame_TurnPlay();
+            //AS04_AttackEnemy();
+            //AS05_DynamicIterationLoop();
+            //AS06_WhileLoopAndArray();
+            //AS07_HealTargetAtIndex();
+            //AS08_RandomPickingDialogue();
+            //AS09_MultiplicationTable();
+            //AS10_FindSummationFromZeroToNUsingWhileLoop();
+            //AS11_SpawnEnemies();
+            //StartCoroutine(AS12_CountTime());
+            //AS13_SumOfNumbersInRow();
+            //AS14_SumOfNumbersInColumn();
+            //AS15_MakeTheTriangle();
+            //AS16_MultiplicationTableOf_2_3_and_4();
+            //EX_01_TicTacToeGame_TurnPlay();
 
         }
 
@@ -336,7 +336,10 @@ namespace Assignment
         public int as05_n;
         public void AS05_DynamicIterationLoop()
         {
-            throw new NotImplementedException();
+            for (int i = 0; i < as05_n; i++)
+            {
+                Debug.Log(i);
+            }
         }
 
         /*
@@ -385,7 +388,22 @@ namespace Assignment
         public string[] as06_ironManSuitNames;
         public void AS06_WhileLoopAndArray()
         {
-            throw new NotImplementedException();
+
+            Debug.Log("====== Log by One ======");
+            int i = 0;
+            while (i < as06_ironManSuitNames.Length)
+            {
+                Debug.Log(as06_ironManSuitNames[i]);
+                i += 1;
+            }
+
+            Debug.Log("====== Log by Two ======");
+            i = 0; 
+            while (i < as06_ironManSuitNames.Length)
+            {
+                Debug.Log(as06_ironManSuitNames[i]);
+                i += 2;
+            }
         }
 
         /*
