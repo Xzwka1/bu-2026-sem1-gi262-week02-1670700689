@@ -46,7 +46,24 @@ namespace Assignment
         public GameObject[] as01_items;
         public void AS01_RandomItemDrop()
         {
-            throw new NotImplementedException();
+            //เอาไว้กัน Error ตอนลืมใส่ GameObject 
+            if (as01_items == null || as01_items.Length == 0)
+            {
+                Debug.LogWarning("ใส่เกม GameObject ใน as01_items ก่อน");
+                return;
+            }
+            //เอาไว้สุ่ม Index ตั้งแต่ตัวแรกจนถึงสุดท้าย ของ Array
+            int rIndex = UnityEngine.Random.Range(0, as01_items.Length);
+
+            //เอาไว้เลือก item gameobject ที่สุ่มได้มา 
+            GameObject selectItem = as01_items[rIndex];
+
+            //เอาไว้ สร้าง instantiate object item ลงในเกมและเก็บค่าไว้ในตัวแปรของ playerItem
+            GameObject playerItem = Instantiate(selectItem);
+            Debug.Log($"Got item {playerItem.name}");
+
+            
+
         }
 
         /*
