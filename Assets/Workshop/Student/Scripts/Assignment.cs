@@ -11,10 +11,10 @@ namespace Assignment
     {
         public void Start()
         {
-            AS01_RandomItemDrop();
-            AS02_NestedLoopForCreate2DMap();
-            AS03_NestedLoopForMakingWallAround();
-            // AS04_AttackEnemy();
+            //AS01_RandomItemDrop();
+            //AS02_NestedLoopForCreate2DMap();
+            //AS03_NestedLoopForMakingWallAround();
+            AS04_AttackEnemy();
             // AS05_DynamicIterationLoop();
             // AS06_WhileLoopAndArray();
             // AS07_HealTargetAtIndex();
@@ -291,7 +291,29 @@ namespace Assignment
         public int as04_target;
         public void AS04_AttackEnemy()
         {
-            throw new NotImplementedException();
+            as04_enemyHP[0] -= as04_damage;
+
+            if (as04_enemyHP[0] < 0) as04_enemyHP[0] = 0;
+            Debug.Log($"FirstEnemy hp : {as04_enemyHP[0]}");
+
+
+            int lastIndex = as04_enemyHP.Length - 1;
+            if (as04_enemyHP[lastIndex] < 0) as04_enemyHP[lastIndex] = 0;
+            Debug.Log($"Last Enemy hp : {as04_enemyHP[lastIndex]}");
+
+            if (as04_target >= 0 && as04_target < as04_enemyHP.Length)
+            {
+                as04_enemyHP[as04_target] -= as04_damage;
+                if (as04_enemyHP[as04_target] < 0) as04_enemyHP[as04_target] = 0;
+                Debug.Log($"TargetEnemy {as04_target} hp : {as04_enemyHP[as04_target]}");
+
+
+
+
+
+
+            }
+
         }
 
         /*
