@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using Unity.Properties;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 namespace Assignment
 {
@@ -23,7 +24,7 @@ namespace Assignment
             //AS10_FindSummationFromZeroToNUsingWhileLoop();
             //AS11_SpawnEnemies();
             //StartCoroutine(AS12_CountTime());
-            //AS13_SumOfNumbersInRow();
+            AS13_SumOfNumbersInRow();
             //AS14_SumOfNumbersInColumn();
             //AS15_MakeTheTriangle();
             //AS16_MultiplicationTableOf_2_3_and_4();
@@ -441,7 +442,20 @@ namespace Assignment
         public int as07_targetIndex;
         public void AS07_HealTargetAtIndex()
         {
-            throw new NotImplementedException();
+            as07_heroHPs[0] += as07_heal;
+            Debug.Log($"FirstHero hp : {as07_heroHPs[0]}");
+
+
+            int lastIndex = as07_heroHPs.Length - 1;
+            as07_heroHPs[lastIndex] += as07_heal;
+            Debug.Log($"LastHero hp : {as07_heroHPs[lastIndex]}");
+
+
+            if (as07_targetIndex >= 0 && as07_targetIndex < as07_heroHPs.Length)
+            {
+                as07_heroHPs[as07_targetIndex] += as07_heal;
+                Debug.Log($"Targethero {as07_targetIndex} hp : {as07_targetIndex}");
+            }
         }
 
         /*
@@ -468,7 +482,9 @@ namespace Assignment
         public string[] as08_dialogues;
         public void AS08_RandomPickingDialogue()
         {
-            throw new NotImplementedException();
+            int r = UnityEngine.Random.Range(0, as08_dialogues.Length);
+
+            Debug.Log(as08_dialogues[r]);
         }
 
         /*
@@ -494,7 +510,10 @@ namespace Assignment
         public int as09_n;
         public void AS09_MultiplicationTable()
         {
-            throw new NotImplementedException();
+            for (int i = 1; i <= 12; i++)
+            {
+                Debug.Log($"{as09_n}x{i}={as09_n * i}");
+            }
         }
 
         /*
@@ -520,7 +539,18 @@ namespace Assignment
         public int as10_n;
         public void AS10_FindSummationFromZeroToNUsingWhileLoop()
         {
-            throw new NotImplementedException();
+
+            int sum = 0;
+            int i = 1;
+
+            while (i <= as10_n)
+            {
+                sum += i;
+
+                i++;
+            }
+
+            Debug.Log($"ผลรวมของ n จาก 1 ถึง {as10_n} คือ {sum}");
 
         }
 
@@ -547,7 +577,15 @@ namespace Assignment
         public GameObject as11_enemyPrefab;
         public void AS11_SpawnEnemies()
         {
-            throw new NotImplementedException();
+            for (int i = 0; i < as11_enemyHPs.Length; i++)
+            {
+
+
+                Instantiate(as11_enemyPrefab, new Vector2(i + 1, 0), transform.rotation);
+
+                Debug.Log($"new enemy at position x={i + 1}");
+
+            }
         }
 
         /*
@@ -560,7 +598,7 @@ namespace Assignment
         public float as12_countTime;
         public IEnumerator AS12_CountTime()
         {
-            throw new NotImplementedException();
+            
         }
 
         /*
@@ -618,7 +656,14 @@ namespace Assignment
         public void AS13_SumOfNumbersInRow()
         {
             var matrix = as13_matrix.Get2DArray();
-            throw new NotImplementedException();
+            int sum = 0;
+            int cols = matrix.GetLength(1);
+
+            for (int col = 0; col < cols; col++)
+            {
+                sum += matrix[as13_row, col];
+            }
+            Debug.Log(sum);
         }
 
         /*
