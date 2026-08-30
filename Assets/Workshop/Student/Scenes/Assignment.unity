@@ -211,7 +211,7 @@ MonoBehaviour:
     rows: 3
     cols: 3
     data: 010000000200000003000000040000000500000006000000070000000800000009000000
-  as14_column: 1
+  as14_column: 0
   as15_size: 10
   ex01_board:
     rows: 3

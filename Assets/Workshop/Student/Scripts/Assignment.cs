@@ -24,8 +24,8 @@ namespace Assignment
             //AS10_FindSummationFromZeroToNUsingWhileLoop();
             //AS11_SpawnEnemies();
             //StartCoroutine(AS12_CountTime());
-            AS13_SumOfNumbersInRow();
-            //AS14_SumOfNumbersInColumn();
+            //AS13_SumOfNumbersInRow();
+            AS14_SumOfNumbersInColumn();
             //AS15_MakeTheTriangle();
             //AS16_MultiplicationTableOf_2_3_and_4();
             //EX_01_TicTacToeGame_TurnPlay();
@@ -598,7 +598,18 @@ namespace Assignment
         public float as12_countTime;
         public IEnumerator AS12_CountTime()
         {
-            
+            float timer = 0f;
+
+            while (timer < as12_countTime)
+            {
+                timer += Time.deltaTime;
+                Debug.Log($"timer: {timer:F2}");
+
+               
+                yield return null;
+            }
+
+            Debug.Log($"End timer: {as12_countTime}");
         }
 
         /*
@@ -719,7 +730,14 @@ namespace Assignment
         public void AS14_SumOfNumbersInColumn()
         {
             var matrix = as14_matrix.Get2DArray();
-            throw new NotImplementedException();
+
+            int sum = 0;
+            int rows = matrix.GetLength(0);
+            for ( int row = 0; row < rows; row++)
+            {
+                sum += matrix[row, as14_column];
+            }
+            Debug.Log(sum);
         }
 
         /*
@@ -767,11 +785,24 @@ namespace Assignment
          */
         [Header("AS15_MakeTheTriangle")]
         public int as15_size;
+
         public void AS15_MakeTheTriangle()
         {
-            throw new NotImplementedException();
-        }
+           
+            for (int i = 1; i <= as15_size; i++)
+            {
+                string line = "";
 
+               
+                for (int j = 1; j <= i; j++)
+                {
+                    line += "*";
+                }
+
+                
+                Debug.Log(line);
+            }
+        }
         /*
          * จงเขียนโปรแกรมภาษา C# เพื่อแสดงตารางสูตรคูณ ตั้งแต่ 2 คูณ 1 ถึง 12 ไปจนถึง 4 คูณ 1 ถึง 12 โดยใช้ Nested Loop
          * ใช้ \t เพื่อเว้นวรรคแท็บระหว่าง column (และในแต่ละบรรทัดจะต้องไม่ลงท้ายด้วย \t) เช่น
@@ -798,7 +829,16 @@ namespace Assignment
          */
         public void AS16_MultiplicationTableOf_2_3_and_4()
         {
-            throw new NotImplementedException();
+           for (int i = 1; i <= 12; i ++)
+            {
+                string rowText = "";
+                rowText += $"{j}x{i}={j * i}";
+
+                if (j < 4)
+                {
+                    rowText += "\t";
+                }
+            }
         }
 
         #endregion
